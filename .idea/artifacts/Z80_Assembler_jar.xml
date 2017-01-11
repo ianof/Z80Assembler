@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Z80 Assembler:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Z80_Assembler_jar</output-path>
+    <root id="archive" name="Z80 Assembler.jar">
+      <element id="module-output" name="Z80 Assembler" />
+    </root>
+  </artifact>
+</component>
