@@ -36,9 +36,11 @@ public class Main implements ActionListener {
         out = new JTextArea(10, 20);
         out.setFont(new Font("Monospaced", Font.PLAIN, 12));
         frame.add(out);
-        frame.add(new JLabel("Can assemble arithmetic and logic operations"));
-        frame.add(new JLabel("All register names and operation names are capital"));
-        frame.add(new JLabel("Literals are in hexadecimal (e.g. 'C5h')"));
+        frame.add(new JLabel("Case insensitive"));
+        frame.add(new JLabel("Can assemble only arithmetic, logic, load, and exchange operations"));
+        frame.add(new JLabel("Example Literal: 22h"));
+        frame.add(new JLabel("Example Extended Address: (2222)"));
+        frame.add(new JLabel("Example Indexed Address: (IX+22)"));
         frame.pack();
         frame.setVisible(true);
     }
@@ -47,12 +49,14 @@ public class Main implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == assemble) {
             String assembly = in.getText();
-            String machine = assemble(assembly);
+            String machine = "";
+            machine = assemble(assembly);
             out.setText(machine);
         }
     }
 
     public String assemble(String in) {
+        in = in.toUpperCase();
         ArrayList<Instruction> instructions = new ArrayList<Instruction>();
         String instruction = "";
         for(int i = 0; i < in.length(); i ++) {

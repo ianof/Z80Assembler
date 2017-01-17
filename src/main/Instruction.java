@@ -41,6 +41,8 @@ public class Instruction {
         byte[] bytes = new byte[0];
         if(contains(OpGroup.ArithmeticAndLogic.domain, op)) {
             bytes = OpGroup.ArithmeticAndLogic.machine(op, arg1, arg2);
+        } else if(op.compareTo(OpGroup.LoadAndExchange.domain) == 0) {
+            bytes = OpGroup.LoadAndExchange.machine(op, arg1, arg2);
         }
         return bytes;
     }
